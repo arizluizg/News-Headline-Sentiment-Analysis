@@ -1,0 +1,13 @@
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Embedding cache
+semantic_cache/
+
+# Compressed artifact backup
+news_sentiment_artifacts.zip
