@@ -129,7 +129,7 @@ class App(tk.Tk):
         f = self.tab_analyze
         ttk.Label(f, text="Headline sentiment - semantic (context-aware)", font=("Segoe UI", 16, "bold")).pack(
             anchor="w", padx=12, pady=(12, 0))
-        ttk.Label(f, text="Reads the whole sentence, so negation such as 'not bad' is understood.",
+        ttk.Label(f, text="Reads the whole sentence.",
                   foreground=MUTED).pack(anchor="w", padx=12, pady=(0, 8))
 
         box = ttk.LabelFrame(f, text="Headline")

@@ -1,7 +1,7 @@
 {
   "model_name": "Tuned Logistic Regression",
   "model_version": "1.0.0",
-  "trained_at": "2026-09-28T08:54:46",
+  "trained_at": "2026-11-18T18:43:51",
   "target": "Sentiment Category",
   "target_rule": "TextBlob polarity > 0.05 = Positive; < -0.05 = Negative; otherwise dropped (binary target)",
   "dropped_neutral_zone_rows": 47309,
