@@ -1,7 +1,7 @@
 {
   "model_name": "Tuned Logistic Regression",
   "model_version": "1.0.0",
-  "trained_at": "2026-11-18T18:43:51",
+  "trained_at": "2026-11-25T13:08:18",
   "target": "Sentiment Category",
   "target_rule": "TextBlob polarity > 0.05 = Positive; < -0.05 = Negative; otherwise dropped (binary target)",
   "dropped_neutral_zone_rows": 47309,
@@ -28,7 +28,7 @@
     "select__k": 10000
   },
   "seed": 42,
-  "dataset_sha256": "b182ba8f5aace0d857e53eec6ca16c583ca5080156ca0046878708b005ff8983",
+  "dataset_sha256": "6148d712fb0141de108674925438b616fd1f90e0cbace77f5577d0c30b5f453e",
   "model_file_size_kb": 522.4,
   "warning": "Evaluation is against TextBlob-derived pseudo-labels, not human annotations."
 }

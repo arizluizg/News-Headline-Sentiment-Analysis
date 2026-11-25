@@ -1,30 +1,52 @@
 {
-  "model_version": "semantic-1.0",
-  "created_at": "2026-11-18T19:14:18",
+  "model_version": "semantic-3.0",
+  "artifact_format": "pytorch_transformer_mlp",
+  "created_at": "2026-11-25T12:33:06",
   "task": "Binary sentiment (Positive / Negative) of Philippine news headlines; context-aware",
   "classes": [
     "Negative",
     "Positive"
   ],
-  "classifier": "MLP (1 hidden layer)",
+  "classifier": "Partially Fine-Tuned DistilBERT (Top 2/6 Layers) + CLS/Mean PyTorch MLP (Full 64k Data)",
   "best_params": {
-    "hidden_layer_sizes": [
-      256
-    ],
-    "alpha": 0.001
+    "backbone": "distilbert-base-uncased",
+    "total_layers": 6,
+    "frozen_layers": 4,
+    "unfrozen_layers": 2,
+    "pooling": "cls_mean",
+    "mlp_hidden_dim": 192,
+    "dropout": 0.3,
+    "batch_norm": true,
+    "optimizer": "AdamW",
+    "lr_backbone": 0.00012,
+    "lr_head": 0.001,
+    "weight_decay": 0.01,
+    "scheduler": "CosineAnnealingLR",
+    "epochs_run": 5,
+    "selected_epoch": 5,
+    "batch_size": 128,
+    "soft_target_alpha": 0.5
   },
   "teacher_model": "distilbert-base-uncased-finetuned-sst-2-english",
-  "embedder_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedder_model": "distilbert-base-uncased",
   "min_teacher_confidence": 0.8,
-  "sample_size": 20000,
-  "labeled_rows": 17749,
-  "train_rows": 14079,
-  "test_rows": 3670,
+  "sample_size": 64341,
+  "labeled_rows": 57121,
+  "train_rows": 45576,
+  "test_rows": 11545,
+  "val_macro_f1": 0.9407,
   "test_metrics": {
-    "accuracy": 0.8346049046321525,
-    "macro_f1": 0.832666497657343,
-    "roc_auc": 0.913293640745912,
-    "baseline_accuracy": 0.5607629427792915
+    "accuracy": 0.9436985708098744,
+    "precision_macro": 0.943110923101548,
+    "recall_macro": 0.9425755645059082,
+    "macro_f1": 0.9428374513372788,
+    "weighted_f1": 0.9436815550404795,
+    "roc_auc": 0.9863045261509749,
+    "baseline_accuracy": 0.560155911650065,
+    "original_accuracy": 0.8560415764400173,
+    "original_macro_f1": 0.8535931151569134,
+    "original_roc_auc": 0.9335908155032918,
+    "inference_ms_per_headline": 9.84
   },
   "seed": 42,
   "versions": {
@@ -35,5 +57,5 @@
   },
   "source_file": "..\\Datasets\\Philippines-News-Headlines-Dataset-for-Sentiment-Analysis.csv",
   "source_sha256": "6148d712fb0141de108674925438b616fd1f90e0cbace77f5577d0c30b5f453e",
-  "warning": "Labels come from a pretrained sentiment model (the teacher), not human annotators. Metrics measure agreement with those labels. Not for financial or other high-stakes decisions."
+  "warning": "Labels come from a pretrained teacher model (DistilBERT SST-2), not human annotators. Test metrics measure agreement with teacher labels. Not for financial or high-stakes decisions."
 }
