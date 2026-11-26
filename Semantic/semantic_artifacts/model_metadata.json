@@ -1,7 +1,7 @@
 {
   "model_version": "semantic-3.0",
   "artifact_format": "pytorch_transformer_mlp",
-  "created_at": "2026-11-25T12:33:06",
+  "created_at": "2026-11-26T12:03:09",
   "task": "Binary sentiment (Positive / Negative) of Philippine news headlines; context-aware",
   "classes": [
     "Negative",
@@ -46,7 +46,10 @@
     "original_accuracy": 0.8560415764400173,
     "original_macro_f1": 0.8535931151569134,
     "original_roc_auc": 0.9335908155032918,
-    "inference_ms_per_headline": 9.84
+    "cnn1d_accuracy": 0.8516240796881767,
+    "cnn1d_macro_f1": 0.8493253313858965,
+    "cnn1d_roc_auc": 0.9266467690391421,
+    "inference_ms_per_headline": 10.5
   },
   "seed": 42,
   "versions": {

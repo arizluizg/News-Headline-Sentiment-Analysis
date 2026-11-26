@@ -10,15 +10,15 @@ A Deep Learning, context-aware sentiment analysis project for **65,006 Philippin
 
 Trained on **100% of all `64,341` unique clean Philippine news headlines** (`57,121` kept at `conf >= 0.80`; `45,576` train / `11,545` untouched held-out test, **`0` overlap**):
 
-| Benchmark | Companion Rule-Based (TF-IDF) | Original Semantic (`all-MiniLM-L6-v2` Frozen + `MLP`) | **Improved `semantic-3.0` (`distilbert-base-uncased` Partial FT Top 2/6 + CLS/Mean PyTorch MLP + Soft Distillation)** | Gain vs. Original |
-|---|---:|---:|---:|---:|
-| **Test Accuracy** *(SST-2 teacher agreement)* | — | `85.60%` | **`94.37%`** | **`+8.77%`** |
-| **Test Macro-F1** *(SST-2 teacher agreement)* | — | `85.36%` | **`94.28%`** | **`+8.92%`** |
-| **Test Weighted-F1** *(SST-2 teacher agreement)* | — | `85.59%` | **`94.37%`** | **`+8.78%`** |
-| **Test ROC-AUC** *(SST-2 teacher agreement)* | — | `0.9336` | **`0.9863`** | **`+0.0527`** |
-| **24-Sentence Stress Test** *(overall)* | `45.8%` (11/24) | `50.0%` (12/24) | **`70.8%` (17/24)** | **`+20.8%`** |
-| **34-Sentence 10-Category Stress Test** | `52.9%` (18/34) | — | **`97.1%` (33/34)** | **`+44.2%` vs. Rule-Based** |
-| **Single-Headline CPU Inference Speed** | `<2 ms` | `~4 ms` | **`9.8 ms`** | Real-time offline |
+| Benchmark | Rule-Based (TF-IDF) | **1D Text CNN (`Conv1d k=2,3,4`)** | Original (`MiniLM` Frozen + `MLP`) | **Winning `semantic-3.0` (`DistilBERT` Partial FT + CLS/Mean MLP)** | Gain vs. Original |
+|---|---:|---:|---:|---:|---:|
+| **Test Accuracy** *(SST-2 agreement)* | — | `85.16%` | `85.60%` | **`94.37%`** | **`+8.77%`** |
+| **Test Macro-F1** *(SST-2 agreement)* | — | `84.93%` | `85.36%` | **`94.28%`** | **`+8.92%`** |
+| **Test Weighted-F1** *(SST-2 agreement)* | — | `85.14%` | `85.59%` | **`94.37%`** | **`+8.78%`** |
+| **Test ROC-AUC** *(SST-2 agreement)* | — | `0.9266` | `0.9336` | **`0.9863`** | **`+0.0527`** |
+| **24-Sentence Stress Test** *(overall)* | `45.8%` (11/24) | `54.2%` (13/24) | `50.0%` (12/24) | **`70.8%` (17/24)** | **`+20.8%`** |
+| **34-Sentence 10-Category Stress Test** | `52.9%` (18/34) | `61.8%` (21/34) | — | **`97.1%` (33/34)** | **`+44.2%` vs. Rule-Based** |
+| **Single-Headline CPU Speed** | `<2 ms` | **`0.33 ms`** | `~4 ms` | **`10.5 ms`** | Real-time offline |
 
 ---
 
