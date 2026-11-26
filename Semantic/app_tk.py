@@ -45,6 +45,7 @@ EXAMPLES = [
     "Typhoon leaves thousands without power while rescuers work through the night.",
     "Not only good but excellent.",
     "Rice prices hit a new high.",
+    "The Mayor donated thousands to the charity, but the barangay officials stole the funds.",
 ]
 
 # ---- Educational Help & Responsible-AI Documentation Shown in the About Tab ----
